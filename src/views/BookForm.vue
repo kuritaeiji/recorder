@@ -87,6 +87,12 @@ export default {
         let reviewedBook = Object.assign(this.book, this.form)
         this.setReviewedBook(reviewedBook)
         this.setCurrent(null)
+        this.$router.push('/')
+        this.$toasted.show("登録しました", { 
+          theme: "bubble", 
+          position: "top-right", 
+          duration : 5000
+        })
       } else {
         this.$toasted.show("正しい入力をしてください", { 
           theme: "bubble", 
