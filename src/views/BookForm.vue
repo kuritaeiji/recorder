@@ -30,7 +30,7 @@ import BookInfo from '../components/BookInfo.vue'
 
 export default {
   name: 'book-form',
-  computed: mapGetters(['current']),
+  computed: mapGetters(['current', 'getBookById']),
   data() {
     return {
       book: {},
@@ -43,11 +43,18 @@ export default {
   components: {
     BookInfo
   },
-  mounted() {
+  created() {
     if (!this.current) {
       this.$router.push('/')
     }
     this.book = Object.assign({}, this.current)
+  },
+  mounted() {
+    let b = this.getBookById(this.book.id)
+    if (b) {
+      this.form.date = b.date
+      this.form.review = b.review
+    }
   },
   methods: {
     ...mapActions(['setReviewedBook', 'setCurrent']),

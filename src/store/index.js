@@ -15,6 +15,11 @@ export default new Vuex.Store({
     },
     getBooks(state) {
       return state.books
+    },
+    getBookById(state) {
+      return (id) => {
+        return state.books.find((book) => book.id === id)
+      }
     }
   },
   mutations: {
@@ -22,7 +27,12 @@ export default new Vuex.Store({
       state.current = payload
     },
     setReviewedBook(state, payload) {
-      state.books.push(payload)
+      let b = this.getters.getBookById(payload.id)
+      if (b) {
+        Object.assign(b, payload)
+      } else {
+        state.books.push(payload)
+      }
     }
   },
   actions: {
