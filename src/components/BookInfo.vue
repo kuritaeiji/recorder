@@ -1,5 +1,5 @@
 <template>
-  <div id="book-info" class="mb-3 p-2">
+  <div id="book-info" class="mb-3 p-2" @click="onClick">
     <b-row>
       <b-col md="4">
         <img :src="book.image">
@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   name: 'book-info',
   props: {
@@ -23,6 +25,15 @@ export default {
     linkable: {
       type: Boolean,
       default: false
+    }
+  },
+  methods: {
+    ...mapActions(['setCurrent']),
+    onClick() {
+      if (this.linkable) {
+        this.setCurrent(this.book)
+        this.$router.push('/form')
+      }
     }
   }
 }
