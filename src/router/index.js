@@ -1,16 +1,16 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 import BookSearch from '../views/BookSearch.vue'
 import BookForm from '../views/BookForm.vue'
+import Books from '../views/Books.vue'
 
 Vue.use(VueRouter)
 
   const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    component: Books,
+    name: 'books'
   },
   {
     path: '/search',
