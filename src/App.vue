@@ -1,12 +1,18 @@
 <template>
-  <div id="app">
+  <b-container id="app">
     <div id="nav">
       <router-link to="/">本棚</router-link> |
       <router-link to="/search">本を検索</router-link>
     </div>
     <router-view />
-  </div>
+  </b-container>
 </template>
+
+<script>
+export default {
+  name: 'app'
+}
+</script>
 
 <style>
 #app {
