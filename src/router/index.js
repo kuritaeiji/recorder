@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import BookSearch from '../views/BookSearch.vue'
+import BookForm from '../views/BookForm.vue'
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,11 @@ Vue.use(VueRouter)
     path: '/search',
     component: BookSearch,
     name: 'book-search'
+  },
+  {
+    path: '/form',
+    components: BookForm,
+    name: 'book-form'
   }
 ]
 
