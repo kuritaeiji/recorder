@@ -1,5 +1,5 @@
 <template>
-  <div id="book-info" class="mb-3 p-2" @click="onClick">
+  <div :bind="hover" class="mb-3 p-2" @click="onClick">
     <b-row>
       <b-col md="4">
         <img :src="book.image">
@@ -33,6 +33,15 @@ export default {
       if (this.linkable) {
         this.setCurrent(this.book)
         this.$router.push('/form')
+      }
+    }
+  },
+  computed: {
+    hover() {
+      if (this.linkable) {
+        return 'book-info'
+      } else {
+        return ''
       }
     }
   }
