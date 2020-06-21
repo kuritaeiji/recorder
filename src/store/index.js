@@ -6,12 +6,22 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    current: {}
+  },
+  getters: {
+    current(state) {
+      return state.current
+    }
   },
   mutations: {
+    setCurrent (state, payload) {
+      state.current = payload
+    }
   },
   actions: {
-  },
-  modules: {
+    setCurrent (context, payload) {
+      context.commit('setCurrent', payload)
+    }
   },
   plugins: [createPersistedState({
     key: 'reading-recorder',

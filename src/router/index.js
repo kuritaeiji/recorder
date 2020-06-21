@@ -19,7 +19,7 @@ Vue.use(VueRouter)
   },
   {
     path: '/form',
-    components: BookForm,
+    component: BookForm,
     name: 'book-form'
   }
 ]
