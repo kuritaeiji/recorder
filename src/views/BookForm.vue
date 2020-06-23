@@ -3,7 +3,7 @@
     <BookInfo :book="book"></BookInfo>
     <hr />
     <ValidationObserver ref="observer">
-      <b-form @submit.prevent="onSubmit">
+      <b-form @submit.prevent="onSubmit" id="b-book-form">
         <ValidationProvider rules="pastDate" v-slot="{ errors }" name="読了日">
           <b-row class="mb-3">
             <b-col sm="3">
