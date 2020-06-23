@@ -1,6 +1,6 @@
 <template>
   <div id="book-search">
-    <b-form inline @submit.prevent="onSubmit">
+    <b-form inline @submit.prevent="onSubmit" id="search-books-form">
       <label for="keyword" class="mr-3">キーワード</label>
       <b-input id="keyword" v-model="keyword" class="mr-3"></b-input>
       <b-button type="submit" variant="primary">検索</b-button>
@@ -34,7 +34,6 @@ export default {
       this.axios.get(`https://www.googleapis.com/books/v1/volumes?q=${this.keyword}`)
                 .then((response) => {
                   let searchedBooks = response.data.items
-                  console.log(searchedBooks)
                   searchedBooks.forEach((book) => {
                     let authors = book.volumeInfo.authors
                     let price = book.saleInfo.listPrice
@@ -48,7 +47,6 @@ export default {
                       image: image ? image.smallThumbnail : ''
                     })
                   })
-                  console.log(this.books)
                 })
     }
   },
