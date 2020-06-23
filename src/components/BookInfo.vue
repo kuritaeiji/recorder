@@ -25,8 +25,7 @@ export default {
     linkable: {
       type: Boolean,
       default: false
-    },
-    index: Number
+    }
   },
   methods: {
     ...mapActions(['setCurrent']),
